@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('install playwright') {
             steps {
-                sh 'sudo chown -R $(whoami):$(id -g) /.npm'
+                sh 'sudo chown -R 501:20 "/.npm"'
                 sh 'npm i -D @playwright/test'
                 sh 'npx playwright install'
             }
