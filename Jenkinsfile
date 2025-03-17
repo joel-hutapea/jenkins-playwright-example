@@ -8,7 +8,7 @@ pipeline {
     stages {
         stage('install playwright') {
             steps {
-                sh 'sudo chown -R 501:20 "/.npm"'
+                sh 'mkdir -p /tmp/.npm'
                 sh 'npm i -D @playwright/test'
                 sh 'npx playwright install'
             }
