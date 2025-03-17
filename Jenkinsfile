@@ -1,5 +1,10 @@
 pipeline {
-    agent { docker { image 'mcr.microsoft.com/playwright:v1.51.0-noble' } }
+    agent { 
+        docker { 
+            image 'mcr.microsoft.com/playwright:v1.51.0-noble'
+            args '-e NPM_CONFIG_CACHE=/tmp/.npm' 
+        } 
+    }
     stages {
         stage('install playwright') {
             steps {
